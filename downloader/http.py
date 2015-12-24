@@ -58,5 +58,3 @@ class HTTP(Downloader):
         self.start = _range[0]
         self.end = _range[1]
 
-    def get_buffer(self):
-        raise NotImplementedError("get return the right buffer")
