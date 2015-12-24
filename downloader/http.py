@@ -1,8 +1,8 @@
 from __future__ import unicode_literals
-from __future__ import with_statement
 import requests
 import os
 import Downloader
+import time
 
 """
 This file is for downloading files from http
@@ -23,9 +23,11 @@ class HTTP(Downloader):
     def download(self):
         data_handle = requests.get(self.file_info.data_url)
         data = data_handle.raw
+
+        before = time.time()
         while True:
             # get a block of data from the server
-            data_block = data.read(self.get_buffer())
+            data_block = data.read(self.buffer if self.buffer is not None else 1024)
             self.downloaded_byte += len(data_block)
 
             # break out of loop when download is done
@@ -53,8 +55,13 @@ class HTTP(Downloader):
                 # raise error again because we controller to know that the file was not opened
                 raise
 
+            # measure the time it took to download and write to disk
+            after = time.time()
+            self.set_buffer(after - before, len(data_block))
+            before = after
+
     def cal_offset(self):
         _range = self.file_info.range.split("-")
-        self.start = _range[0]
-        self.end = _range[1]
+        self.start = int(_range[0])
+        self.end = int(_range[1])
 
