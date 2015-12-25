@@ -34,7 +34,7 @@ class HTTP(Downloader):
         data = None
         while retrys > 0:
             # try to get a connection to the server
-            data_handle = requests.get(self.file_info["data_url"], headers=self.file_info["header"], stream=True)
+            data_handle = requests.get(self.file_info["data_url"], headers=self.file_info["http_headers"], stream=True)
             # check status code
 
             # this status code should be seen since controller will check if resum is posisble
@@ -48,7 +48,7 @@ class HTTP(Downloader):
             if data_handle.status_code >= 500 or data_handle.status_code < 600:
                 # the server has a problem or it is trying to refuse our connection
                 # pretend to be a new user and try again (find a way to change ip for ip tracking servers)
-                self.file_info["header"] = self.file_info["header"]["User-Agent"] = get_next_user_agent()
+                self.file_info["http_headers"]["User-Agent"] = get_next_user_agent()
                 retrys -= 1
                 continue
 
