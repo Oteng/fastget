@@ -24,9 +24,30 @@ class HTTP(Downloader):
         self.downloaded_byte = 0
 
     def download(self):
-        # TODO: check status code and report reason for aborting download to controller
-        data_handle = requests.get(self.file_info["data_url"], headers=self.file_info["header"], stream=True)
-        data = data_handle.raw
+        # TODO: signal controller of status and errors if donwload has to exist
+        retrys = 5
+        while retrys > 0:
+            # try to get a connection to the server
+            data_handle = requests.get(self.file_info["data_url"], headers=self.file_info["header"], stream=True)
+            # check status code
+
+            # this status code should be seen since controller will check if resum is posisble
+            if data_handle.status_code == 416:
+                raise Exception("Resume not possible"+data_handle.status_code)
+
+            # unexpected error
+            if data_handle.status_code < 500 or data_handle.status_code >= 600:
+                raise Exception("Unexpected error"+data_handle.status_code)
+
+            if data_handle.status_code >= 500 or data_handle.status_code < 600:
+                # the server has a problem or it is trying to refuse our connection
+                # pretend to be a new user and try again (find a way to change ip for ip tracking servers)
+                self.change_header()
+                retrys -= 1
+                continue
+
+            data = data_handle.raw
+            break
 
         before = time.time()
         while True:
