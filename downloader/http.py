@@ -1,9 +1,14 @@
 from __future__ import unicode_literals
-import requests
+
 import os
-from download import Downloader
 import time
 
+import requests
+
+from download import Downloader
+from utils import (
+    get_next_user_agent,
+)
 
 
 class HTTP(Downloader):
@@ -26,6 +31,7 @@ class HTTP(Downloader):
     def download(self):
         # TODO: signal controller of status and errors if donwload has to exist
         retrys = 5
+        data = None
         while retrys > 0:
             # try to get a connection to the server
             data_handle = requests.get(self.file_info["data_url"], headers=self.file_info["header"], stream=True)
@@ -33,16 +39,16 @@ class HTTP(Downloader):
 
             # this status code should be seen since controller will check if resum is posisble
             if data_handle.status_code == 416:
-                raise Exception("Resume not possible"+data_handle.status_code)
+                raise Exception("Resume not possible" + data_handle.status_code)
 
             # unexpected error
             if data_handle.status_code < 500 or data_handle.status_code >= 600:
-                raise Exception("Unexpected error"+data_handle.status_code)
+                raise Exception("Unexpected error" + data_handle.status_code)
 
             if data_handle.status_code >= 500 or data_handle.status_code < 600:
                 # the server has a problem or it is trying to refuse our connection
                 # pretend to be a new user and try again (find a way to change ip for ip tracking servers)
-                self.change_header()
+                self.file_info["header"] = self.file_info["header"]["User-Agent"] = get_next_user_agent()
                 retrys -= 1
                 continue
 
