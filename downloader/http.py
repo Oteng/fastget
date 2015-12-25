@@ -4,10 +4,6 @@ import os
 from download import Downloader
 import time
 
-"""
-This file is for downloading files from http
-and writing then to disk
-"""
 
 
 class HTTP(Downloader):
