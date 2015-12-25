@@ -16,3 +16,7 @@ class Downloader:
         if rate < new_min:
             self.buffer = int(new_min)
         self.buffer = int(rate)
+
+    @staticmethod
+    def change_header():
+        raise NotImplementedError()
