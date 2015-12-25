@@ -16,7 +16,6 @@ class HTTP(Downloader):
         self.end = None
         self.file_info = file_info
         self.file = None
-        self.file_name = file_info.file_name
         self.cal_offset()
         self.downloaded_byte = 0
 
@@ -38,7 +37,7 @@ class HTTP(Downloader):
             # open file just in time
             if self.file is None:
                 try:
-                    self.file = open(self.file_name, "wb")
+                    self.file = open(self.file_info.file_name, "wb")
                     assert self.file is not None
                     self.file.seek(self.start, os.SEEK_CUR)
                 except (IOError, OSError) as err:
