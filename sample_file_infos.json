@@ -1,0 +1,61 @@
+
+{
+  "display_id": "14a50e954595b",
+  "extractor": "nowvideo",
+  "description": "No description",
+  "format": "0 - unknown",
+  "requested_subtitles": null,
+  "format_id": "0",
+  "playlist_index": null,
+  "playlist": null,
+  "title": "Bridge.of.Spies.2015.HDRip.XviD.AC3-EVO",
+  "url": "http://s240.zerocdn.to/dl/e122dcb1c6f790f1aff3d4edb3fdd062/567d9c6b/ffcd2c27e633a8ca43c2eb9caefe265b9c.flv",
+  "extractor_key": "NowVideo",
+  "http_headers": {
+    "Accept-Charset": "ISO-8859-1,utf-8;q=0.7,*;q=0.7",
+    "Accept-Language": "en-us,en;q=0.5",
+    "Accept-Encoding": "gzip, deflate",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20150101 Firefox/20.0 (Chrome)"
+  },
+  "id": "14a50e954595b",
+  "ext": "flv",
+  "webpage_url": "http://www.nowvideo.to/video/14a50e954595b",
+  "_filename": "Bridge.of.Spies.2015.HDRip.XviD.AC3-EVO-14a50e954595b.flv",
+  "fulltitle": "Bridge.of.Spies.2015.HDRip.XviD.AC3-EVO",
+  "webpage_url_basename": "14a50e954595b"
+},
+
+{
+  "display_id": "9j1c32arnto9",
+  "extractor": "streamcloud.eu",
+  "format": "0 - unknown",
+  "requested_subtitles": null,
+  "format_id": "0",
+  "id": "9j1c32arnto9",
+  "playlist": null,
+  "thumbnails": [
+    {
+      "url": "http://stor22.streamcloud.eu:8080/i/01/01310/2geggmg6qd6g.jpg",
+      "id": "0"
+    }
+  ],
+  "title": "Bridge of Spies 2015 HDRip AC3-EVO",
+  "url": "http://stor22.streamcloud.eu:8080/67v75w4zj2oax3ptxzlyhb7puabsjtcb2xbvpds2op4zlwinf7cqlc2ola/video.mp4",
+  "extractor_key": "Streamcloud",
+  "http_headers": {
+    "Accept-Language": "en-us,en;q=0.5",
+    "Accept-Encoding": "gzip, deflate",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20150101 Firefox/20.0 (Chrome)",
+    "Accept-Charset": "ISO-8859-1,utf-8;q=0.7,*;q=0.7",
+    "Cookie": "lang=english"
+  },
+  "playlist_index": null,
+  "ext": "mp4",
+  "webpage_url": "http://streamcloud.eu/9j1c32arnto9/Bridge.of.Spies.2015.HDRip.XviD.AC3-EVO.avi.html",
+  "_filename": "Bridge of Spies 2015 HDRip AC3-EVO-9j1c32arnto9.mp4",
+  "fulltitle": "Bridge of Spies 2015 HDRip AC3-EVO",
+  "thumbnail": "http://stor22.streamcloud.eu:8080/i/01/01310/2geggmg6qd6g.jpg",
+  "webp33age_url_basename": "Bridge.of.Spies.2015.HDRip.XviD.AC3-EVO.avi.html"
+}
